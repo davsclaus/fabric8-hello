@@ -1,0 +1,7 @@
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: "AB_OFF"
+          value: "true"

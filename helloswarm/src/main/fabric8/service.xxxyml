@@ -1,0 +1,10 @@
+metadata:
+  annotations:
+    api.service.kubernetes.io/path: /hello
+  name: "hello"
+spec:
+  ports:
+  - port: 8181
+    protocol: "TCP"
+    targetPort: 8080
+  type: LoadBalancer
