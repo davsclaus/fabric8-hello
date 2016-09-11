@@ -7,6 +7,13 @@ There are two Maven projects:
 * client - Spring Boot application with Camel that triggers every 2nd second to call the hello service and log the response.
 * helloswarm - WildFly Swarm application hostin a hello service which returns a reply message.
 
+The diagram below illustrates this:
+
+![Overview](diagram.png?raw=true "Overview")
+
+
+### Running Kubernetes locally
+
 The two applications can be deployed in a kubernetes cluster. You can run a kubernetes cluster locally using fabric8 which you can find more details here: [fabric8 get started](https://fabric8.io/guide/getStarted/index.html)
 
 I am using MiniShift to run my local kubernetes cluster. I run the minimal version which do not include the CI/CD pipeline and therefore I run with low memory usage.
