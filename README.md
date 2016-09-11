@@ -15,7 +15,7 @@ I am using MiniShift to run my local kubernetes cluster. I run the minimal versi
 
 ... and follow the instructions from minishift.
 
-And then I have installed fabric8 using gofabric8:
+And then I have installed fabric8 using gofabric8 (yes the --app= should be empty to install the minimal):
 
     gofabric8 deploy -y  --domain=$(minishift ip).xip.io  --api-server=$(minishift ip) --app=
 
