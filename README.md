@@ -2,9 +2,10 @@
 
 Two microservices using Spring Boot and WildFly Swarm with Camel running in kubernetes using fabric8 tooling
 
-There are two Maven projects:
+There are three Maven projects:
 
 * client - Spring Boot application with Camel that triggers every 2nd second to call the hello service and log the response.
+* client-hystrix - A client that uses Hystrix as circuit breaker EIP when call the hello service. This version uses currently a SNAPSHOT version of Apache Camel as it Camel 2.18.0 has not yet been released.
 * helloswarm - WildFly Swarm application hostin a hello service which returns a reply message.
 
 The diagram below illustrates this:
@@ -14,7 +15,7 @@ The diagram below illustrates this:
 
 ### Running Kubernetes locally
 
-The two applications can be deployed in a kubernetes cluster. You can run a kubernetes cluster locally using fabric8 which you can find more details here: [fabric8 get started](https://fabric8.io/guide/getStarted/index.html)
+The applications can be deployed in a kubernetes cluster. You can run a kubernetes cluster locally using fabric8 which you can find more details here: [fabric8 get started](https://fabric8.io/guide/getStarted/index.html)
 
 I am using MiniShift to run my local kubernetes cluster. I run the minimal version which do not include the CI/CD pipeline and therefore I run with low memory usage.
 

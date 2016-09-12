@@ -4,20 +4,19 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 /**
- * Use Camel error handler to perform redelivery when calling the service fails
+ * Uses the Hystrix Circuit Breaker
  */
 @Component
 public class MyRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        // try to call the service again
-        onException(Exception.class)
-                .maximumRedeliveries(10)
-                .redeliveryDelay(1000);
-
         from("timer:foo?period=2000")
+            .hystrix()
                 .to("netty4-http:http://{{service:hello}}/hello?keepAlive=false&disconnect=true")
+            .onFallback()
+                .setBody().constant("Nobody want to talk to me")
+            .end()
                 .log("${body}");
     }
 }
