@@ -27,7 +27,7 @@ And if you want to use OpenShift instead of Kubernetes:
 
     mvn io.fabric8:fabric8-maven-plugin:3.1.59:cluster-start -Dfabric8.cluster.kind=openshift
 
-Then fabric8 will download the binaries into `<HOME>/.fabric8` directory. It can be a good idea to add this directory to the `$PATH`, so you can easily run the clients to interact with the cluster.
+Then fabric8 will download the binaries into `<HOME>/.fabric8/bin` directory. It can be a good idea to add this directory to the `$PATH`, so you can easily run the clients to interact with the cluster.
 
 However before we had to install fabric8 using a few more manual steps as explained below.
 
