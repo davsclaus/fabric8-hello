@@ -17,6 +17,22 @@ The diagram below illustrates this:
 
 The applications can be deployed in a kubernetes cluster. You can run a kubernetes cluster locally using fabric8 which you can find more details here: [fabric8 get started](https://fabric8.io/guide/getStarted/index.html)
 
+#### Installing from Maven
+
+The fabric8 team has made it very easy to download, install and start a Kubernetes/OpenShift cluster on your computer very easy. All you need to do is from a command line run this Maven goal:
+
+    mvn io.fabric8:fabric8-maven-plugin:3.1.59:cluster-start
+
+And if you want to use OpenShift instead of Kubernetes:
+
+    mvn io.fabric8:fabric8-maven-plugin:3.1.59:cluster-start -Dfabric8.cluster.kind=openshift
+
+Then fabric8 will download the binaries into `<HOME>/.fabric8` directory. It can be a good idea to add this directory to the `$PATH`, so you can easily run the clients to interact with the cluster.
+
+However before we had to install fabric8 using a few more manual steps as explained below.
+
+#### Manually steps
+
 I am using MiniShift to run my local kubernetes cluster. I run the minimal version which do not include the CI/CD pipeline and therefore I run with low memory usage.
 
     minishift start --memory=2000
