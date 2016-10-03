@@ -17,7 +17,7 @@ public class MyRoute extends RouteBuilder {
                 .redeliveryDelay(1000);
 
         from("timer:foo?period=2000")
-                .to("netty4-http:http://{{service:hello}}/hello?keepAlive=false&disconnect=true")
+                .to("netty4-http:http://{{service:helloswarm}}/say?keepAlive=false&disconnect=true")
                 .log("${body}");
     }
 }
