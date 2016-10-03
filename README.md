@@ -21,11 +21,11 @@ The applications can be deployed in a kubernetes cluster. You can run a kubernet
 
 The fabric8 team has made it very easy to download, install and start a Kubernetes/OpenShift cluster on your computer very easy. All you need to do is from a command line run this Maven goal:
 
-    mvn io.fabric8:fabric8-maven-plugin:3.1.62:cluster-start
+    mvn io.fabric8:fabric8-maven-plugin:3.1.63:cluster-start
 
 And if you want to use OpenShift instead of Kubernetes:
 
-    mvn io.fabric8:fabric8-maven-plugin:3.1.62:cluster-start -Dfabric8.cluster.kind=openshift
+    mvn io.fabric8:fabric8-maven-plugin:3.1.63:cluster-start -Dfabric8.cluster.kind=openshift
 
 Then fabric8 will download the binaries into `<HOME>/.fabric8/bin` directory. It can be a good idea to add this directory to the `$PATH`, so you can easily run the clients to interact with the cluster.
 
