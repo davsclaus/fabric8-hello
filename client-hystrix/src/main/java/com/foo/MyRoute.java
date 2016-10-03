@@ -13,7 +13,7 @@ public class MyRoute extends RouteBuilder {
     public void configure() throws Exception {
         from("timer:foo?period=2000")
             .hystrix()
-                .to("netty4-http:http://{{service:helloswam}}/say?keepAlive=false&disconnect=true")
+                .to("netty4-http:http://{{service:helloswarm}}/say?keepAlive=false&disconnect=true")
             .onFallback()
                 .setBody().constant("Nobody want to talk to me")
             .end()
