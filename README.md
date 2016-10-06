@@ -51,7 +51,7 @@ If all this is sucesfull you can open the fabric8 web console using:
 
 ### Slides
 
-This source code is used for a talk at the jdkio conference, and you can find the slides for the talk here [slides.pdf](slides.pdf).
+This source code is used for a talk at various conferences, and you can find the slides for the talks in the [slides](slides) directory.
 
 ### Prepare shell
 
