@@ -4,8 +4,8 @@ Two microservices using Spring Boot and WildFly Swarm with Camel running in kube
 
 There are three Maven projects:
 
-* client - Spring Boot application with Camel that triggers every 2nd second to call the hello service and log the response.
-* client-hystrix - A client that uses Hystrix as circuit breaker EIP when call the hello service. This version uses currently a SNAPSHOT version of Apache Camel as it Camel 2.18.0 has not yet been released.
+* client - Spring Boot application with Camel that triggers every 2nd second to call the hello service and log the response. The client uses Camel client side retry for error handling. 
+* client-hystrix - A client that uses Hystrix as circuit breaker for error handling.
 * helloswarm - WildFly Swarm application hostin a hello service which returns a reply message.
 
 The diagram below illustrates this:
