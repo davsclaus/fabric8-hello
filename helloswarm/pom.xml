@@ -56,6 +56,13 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <generator>
+            <includes>
+              <include>wildfly-swarm</include>
+            </includes>
+          </generator>
+        </configuration>
       </plugin>
     </plugins>
   </build>
