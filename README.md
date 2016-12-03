@@ -21,11 +21,11 @@ The applications can be deployed in a kubernetes cluster. You can run a kubernet
 
 The fabric8 team has made it very easy to download, install and start a Kubernetes/OpenShift cluster on your computer very easy. All you need to do is from a command line run this Maven goal:
 
-    mvn io.fabric8:fabric8-maven-plugin:3.1.74:cluster-start
+    mvn io.fabric8:fabric8-maven-plugin:3.2.7:cluster-start
 
 And if you want to use OpenShift instead of Kubernetes:
 
-    mvn io.fabric8:fabric8-maven-plugin:3.1.74:cluster-start -Dfabric8.cluster.kind=openshift
+    mvn io.fabric8:fabric8-maven-plugin:3.2.7:cluster-start -Dfabric8.cluster.kind=openshift
 
 Then fabric8 will download the binaries into `<HOME>/.fabric8/bin` directory. It can be a good idea to add this directory to the `$PATH`, so you can easily run the clients to interact with the cluster.
 
@@ -47,7 +47,7 @@ And then I have installed fabric8 using gofabric8:
 
 If all this is sucesfull you can open the fabric8 web console using:
 
-    minishift service fabric8
+    gofabric8 consoole
 
 ### Slides
 
@@ -57,7 +57,7 @@ This source code is used for a talk at various conferences, and you can find the
 
 When using Maven tooling you want to setup your command shell for docker/kubernetes which can be done by
 
-    minishift docker-env
+    gofabric8 docker-env
 
 Which tells you how to setup using eval
 
@@ -73,7 +73,7 @@ You can deploy the WildFly Swarm application which hosts the hello service.
 
 If the build is success you can deploy to kubernetes using:
 
-    mvn fabric:run
+    mvn fabric:deploy
 
 
 ### Deploying Spring Boot (client)
@@ -85,7 +85,13 @@ You can deploy the Spring Boot application which is the client calling the hello
 
 If the build is success you can deploy to kubernetes using:
 
-    mvn fabric:run
+    mvn fabric:deploy
 
 You should then be able to show the logs of the client, by running `oc get pods` and find the name of the pod that runs the client, and then use `oc logs -f pod-name` to follow the logs.
+
+However you can also run the application from the shell and have logs automatic tailed using
+
+    mvn fabric:run
+
+And then when you press `cltr + c` then the application is undeployed. This allows to quickly run an application and stop it easily as if you are using `mvn spring-boot:run` or `mvn wildfly-swarm:run` etc.
 
